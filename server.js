@@ -6,12 +6,13 @@ var profile = require('./profile');
 const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 
 // then define the route that will use your custom router
 
-
+require('dotenv').config()
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -34,8 +35,8 @@ app.get('/', (req, res)=> {
     res.render('contact');
 });
 
-app.listen(8080, () => {
-    console.log('listening at http://localhost:8080');
+app.listen(PORT, () => {
+    console.log(`listening at ${PORT}`);
 });
 
 app.get('/projects', (req,res) => {
