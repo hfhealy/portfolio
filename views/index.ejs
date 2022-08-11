@@ -42,7 +42,7 @@
         }
         
         h4 {
-            font-size: 4vw !important;
+            /* font-size: 4vw !important; */
             font-weight: 700;
             font-family: 'Caveat', Arial, Helvetica, sans-serif;
             color: rgb(224, 19, 207) !important;
@@ -52,7 +52,7 @@
         .nav-link {
             color: rgb(224, 19, 207) !important;
             font-family: 'Caveat', Arial, Helvetica, sans-serif;
-            font-size: 2.5vw !important;            
+            /* font-size: 2.5vw !important;             */
         }
 
         #headshot {
@@ -181,25 +181,25 @@
     </style>
     <body class=".bg-info">
         <nav id="navbar-box" class="navbar px-3 mb-3 .bg-transparent">
-            <a class="navbar-brand" href="#">Hannah Healy</a>
+            <a class="navbar-brand fs-1" href="#">Hannah Healy</a>
             <ul class="nav nav-pills">
               <li class="nav-item">
-                <a class="nav-link" href="#scrollspyHeading1">About</a>
+                <a class="nav-link fs-2" href="#scrollspyHeading1">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#scrollspyHeading2">Projects</a>
+                <a class="nav-link fs-2" href="#scrollspyHeading2">Projects</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#scrollspyHeading3">Contact</a>
+                <a class="nav-link fs-2" href="#scrollspyHeading3">Contact</a>
               </li>
                 </ul>
               </li>
             </ul>
           </nav>
           <div id="content-box" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example p-3 rounded-0" tabindex="0">
-        <h4 id="scrollspyHeading1">About</h4>
+        <h4 id="scrollspyHeading1" class="fs-2">About</h4>
         <div class="clearfix">
-            <img src="../profile-pic-1.jpg" class="col-md-6 mb-3 ms-md-3 me-4 img-fluid float-start rounded-3" id="headshot">
+            <img src="../profile-pic-1.jpg" class="col-md-6 mb-2 ms-md-3 me-4 img-fluid float-start rounded-3" id="headshot">
             <p id="about-text">
                 When I started learning to code, I was immediately enamored. I love feeling like I've been granted access to a secret world. That probably explains my love for epic world-building books like Harry Potter, Game of Thrones, and Lord of the Rings. 
                 <br>
@@ -236,7 +236,7 @@
         
         <br>
         
-            <h4 id="scrollspyHeading2">Projects</h4>
+            <h4 id="scrollspyHeading2" class="fs-2">Projects</h4>
             <br>
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-2 g-2 g-lg-3">
@@ -346,7 +346,7 @@
             </div>
             <br>
             <br>
-            <h4 id="scrollspyHeading3">Contact</h4>
+            <h4 id="scrollspyHeading3" class="fs-2">Contact</h4>
                 <%- include('contact') %>
         </div>
             <footer>
