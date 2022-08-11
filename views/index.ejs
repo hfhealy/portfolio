@@ -1,10 +1,345 @@
-<html>
-    <head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
         <title> Hannah's Portfolio </title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     </head>
-    <body>
-        <div>
-        I am Hannah
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Raleway:wght@300;600&display=swap');
+
+        #navbar-box {
+            border: rgb(91, 209, 207) .1em solid;
+            margin-top: 16px;
+            margin-left: 16px;
+            margin-right: 16px;
+            margin-bottom: 0px;
+            text-shadow: 2px 2px 5px rgb(62, 244, 202);
+            }
+        
+        #content-box, footer {
+            border: rgb(91, 209, 207) .1em solid;
+            margin: 16px;
+        }
+
+        body {
+            color: black !important;
+        }
+
+        .navbar-brand {
+            font-family: 'Caveat', Arial, Helvetica, sans-serif;
+            font-size: 5vw !important;
+            font-weight: 700;
+            color: rgb(224, 19, 207) !important;
+        }
+
+        #content-box {
+            font-family: 'Raleway', Arial, Helvetica, sans-serif;
+            color: rgb(37, 37, 37);
+
+        }
+        
+        h4 {
+            font-size: 4vw !important;
+            font-weight: 700;
+            font-family: 'Caveat', Arial, Helvetica, sans-serif;
+            color: rgb(224, 19, 207) !important;
+            text-align: center !important;
+        }
+
+        .nav-link {
+            color: rgb(224, 19, 207) !important;
+            font-family: 'Caveat', Arial, Helvetica, sans-serif;
+            font-size: 2.5vw !important;            
+        }
+
+        #headshot {
+            width: 31.85%;
+            height: auto;
+        }
+        #about-text {
+            margin-left: 1em;
+            font-size: 1.7vw;
+        }
+
+        .hovereffect {
+            width: 100%;
+            height: 100%;
+            float: left;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            cursor: default;
+            }
+
+        .hovereffect .overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        left: 0;
+        background-color: rgba(224, 19, 207, 0.6);
+        top: -200px;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        -webkit-transition: all 0.1s ease-out 0.5s;
+        transition: all 0.1s ease-out 0.5s;
+        }
+
+        .hovereffect:hover .overlay {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        top: 0px;
+        -webkit-transition-delay: 0s;
+        transition-delay: 0s;
+        }
+
+        .hovereffect img {
+        display: block;
+        position: relative;
+        }
+
+        .hovereffect h2 {
+        text-transform: uppercase;
+        color: rgb(37, 115, 113);
+        text-align: center;
+        position: relative;
+        font-size: 17px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.9);
+        -webkit-transform: translateY(-200px);
+        -ms-transform: translateY(-200px);
+        transform: translateY(-200px);
+        -webkit-transition: all ease-in-out 0.1s;
+        transition: all ease-in-out 0.1s;
+        -webkit-transition-delay: 0.3s;
+        transition-delay: 0.3s;
+        }
+
+        .hovereffect:hover h2 {
+        -webkit-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        transform: translateY(0px);
+        -webkit-transition-delay: 0.3s;
+        transition-delay: 0.3s;
+        }
+
+        .hovereffect a.info {
+        display: inline-block;
+        text-decoration: none;
+        padding: 7px 14px;
+        text-transform: uppercase;
+        margin: 50px 0 0 0;
+        background-color: transparent;
+        -webkit-transform: translateY(-200px);
+        -ms-transform: translateY(-200px);
+        transform: translateY(-200px);
+        color: #000;
+        border: 1px solid #000;
+        -webkit-transition: all ease-in-out 0.3s;
+        transition: all ease-in-out 0.3s;
+        }
+
+        .hovereffect a.info:hover {
+        box-shadow: 0 0 5px #fff;
+        }
+
+        .hovereffect:hover a.info {
+        -webkit-transform: translateY(0px);
+        -ms-transform: translateY(0px);
+        transform: translateY(0px);
+        box-shadow: 0 0 5px #000;
+        color: #000;
+        border: 1px solid #000;
+        -webkit-transition-delay: 0.3s;
+        transition-delay: 0.3s;
+        }
+
+        .btn-light {
+            margin-top: 2vw;
+        }
+
+        #linked {
+            width: 7.4vw;
+        }
+
+        #git {
+            width: 7vw;
+        }
+
+        #email-icon {
+            width: 6.3vw;
+            margin-left: .5vw;
+        }
+
+        footer {
+            text-align: center;
+        }
+        
+    </style>
+    <body class=".bg-info">
+        <nav id="navbar-box" class="navbar px-3 mb-3 .bg-transparent">
+            <a class="navbar-brand" href="#">Hannah Healy</a>
+            <ul class="nav nav-pills">
+              <li class="nav-item">
+                <a class="nav-link" href="#scrollspyHeading1">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#scrollspyHeading2">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#scrollspyHeading3">Contact</a>
+              </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+          <div id="content-box" data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example p-3 rounded-0" tabindex="0">
+        <h4 id="scrollspyHeading1">About</h4>
+        <div class="clearfix">
+            <p id="content">
+                <img src="../profile-pic-1.jpg" class="img-fluid float-start rounded-3" id="headshot">
+                <div class="container">
+                <div class="row">
+                <div class="col-12" id="about-text">
+
+                When I started learning to code, I was immediately enamored. I love feeling like I've been granted access to a secret world. That probably explains my love for epic world-building books like Harry Potter, Game of Thrones, and Lord of the Rings. 
+                <br>
+                <br>
+                As a full stack developer, I have a passion for coding clean and functional creations. I've transitioned from 10 years as a self-employed recipe blogger to a full-time software engineer apprentice at Creating Coding Careers. 
+                <br>
+                <br>
+                I have a natural curiosity, so I'm always hungry to learn and improve my knowledge and skills every day.
+                <br>
+                <br>
+                My Skills include <strong>MongoDB, Express.js, React and Node.js.</strong> I am a ServiceNow Certified Sytems Administrator.
+                </div>
+                </div>
+            </div> 
+            </p>
         </div>
+        <br>
+        
+            <h4 id="scrollspyHeading2">Projects</h4>
+            <br>
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-2 g-2 g-lg-3">
+                <div class="col">
+                    <div class="hovereffect shadow">
+                        <img class="img-fluid" src="../change-calc.jpg" alt="">
+                            <div class="overlay">
+                                <h2>Change Calculator</h2>
+                                <p>
+                                    <a href="https://change-calculator-hfh.herokuapp.com/" target="_blank"><button type="button" class="btn btn-light">Project</button></a>
+                                    <a href="https://github.com/hfhealy/Change-Calculator" target="_blank"><button type="button" class="btn btn-light">Github</button></a>
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="hovereffect shadow">
+                        <img class="img-fluid" src="../horoscope.jpg" alt="">
+                            <div class="overlay">
+                                <h2>Horoscope Generator</h2>
+                                <p>
+                                    <a href="https://horoscope-hfh.herokuapp.com/" target="_blank"><button type="button" class="btn btn-light">Project</button></a>
+                                    <a href="https://github.com/hfhealy/hackathon-starter" target="_blank"><button type="button" class="btn btn-light">Github</button></a>
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="hovereffect shadow">
+                        <img class="img-fluid" src="../sd-top-spots.jpg" alt="">
+                            <div class="overlay">
+                                <h2>San Diego Top Spots</h2>
+                                <p>
+                                    
+                                    <a href="https://san-diego-top-spots-hfh.herokuapp.com/" target="_blank"><button type="button" class="btn btn-light">Project</button></a>
+                                    <a href="https://github.com/hfhealy/San-Diego-Top-Spots" target="_blank"><button type="button" class="btn btn-light">Github</button></a>
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="hovereffect shadow">
+                        <img class="img-fluid" src="../react-to-do-app.jpg" alt="">
+                            <div class="overlay">
+                                <h2>To Do App</h2>
+                                <p>
+                                    
+                                    <a href="https://to-do-app-hfh.herokuapp.com/" target="_blank"><button type="button" class="btn btn-light">Project</button></a>
+                                    <a href="https://github.com/hfhealy/React-100-VSTDA" target="_blank"><button type="button" class="btn btn-light">Github</button></a>
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="hovereffect shadow">
+                        <img class="img-fluid" src="../react-change-calc.jpg" alt="">
+                            <div class="overlay">
+                                <h2>React Change Calculator</h2>
+                                <p>
+                                    
+                                    <a href="https://react-change-calc-hfh.herokuapp.com/" target="_blank"><button type="button" class="btn btn-light">Project</button></a>
+                                    <a href="https://github.com/hfhealy/React-100-Change-Calculator" target="_blank"><button type="button" class="btn btn-light">Github</button></a>
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="hovereffect shadow">
+                        <img class="img-fluid" src="../mortgage-calc.jpg" alt="">
+                            <div class="overlay">
+                                <h2>Mortgage Calculator</h2>
+                                <p>
+                                    
+                                    <a href="https://react-mortgage-calculator-hfh.herokuapp.com/" target="_blank"><button type="button" class="btn btn-light">Project</button></a>
+                                    <a href="https://github.com/hfhealy/React-Mortgage-Calculator" target="_blank"><button type="button" class="btn btn-light">Github</button></a>
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="hovereffect shadow">
+                        <img class="img-fluid" src="../react-sd-top-spots.jpg" alt="">
+                            <div class="overlay">
+                                <h2>React SD Top Spots</h2>
+                                <p>
+                                    
+                                    <a href="https://react-sd-top-spots-hfh.herokuapp.com/" target="_blank"><button type="button" class="btn btn-light">Project</button></a>
+                                    <a href="https://github.com/hfhealy/React-100-San-Diego-Top-Spots" target="_blank"><button type="button" class="btn btn-light">Github</button></a>
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="hovereffect shadow">
+                        <img class="img-fluid" src="../astro-weight-calc.jpg" alt="">
+                            <div class="overlay">
+                                <h2>Astro Weight Calculator</h2>
+                                <p>
+                                    
+                                    <a href="https://astro-weight-calc-hfh.herokuapp.com/" target="_blank"><button type="button" class="btn btn-light">Project</button></a>
+                                    <a href="https://github.com/hfhealy/Astro-Weight-Calculator" target="_blank"><button type="button" class="btn btn-light">Github</button></a>
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <h4 id="scrollspyHeading3">Contact</h4>
+                <%- include('contact') %>
+        </div>
+            <footer>
+                <a href="https://www.linkedin.com/in/hfhealy/"><img src="../linked.png" id="linked" class="mt-3 mb-3"></a>
+                <a href="https://github.com/hfhealy"><img src="../github.png" id="git" class="mt-3 mb-3"></a>
+                <a href="mailto: hfhealy@gmail.com"><img src="../email.png" id="email-icon" class="mt-3 mb-3"></a>
+            </footer>
+        
     </body>
 </html>

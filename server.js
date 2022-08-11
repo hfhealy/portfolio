@@ -10,12 +10,14 @@ const {google} = require('googleapis');
 const app = express();
 
 // then define the route that will use your custom router
-app.use('/profile', profile)
+
 
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
+app.use('/profile', profile)
+app.use(express.static('images'));
 // Here we're setting the views directory to be ./views
 //thereby letting the app know where to find the template files
 
@@ -29,15 +31,19 @@ app.set('view engine', 'ejs');
 //res.render to send the output of the template by filename
 app.get('/', (req, res)=> {
     res.render('index');
+    res.render('contact');
 });
 
 app.listen(8080, () => {
     console.log('listening at http://localhost:8080');
 });
 
+app.get('/projects', (req,res) => {
+    res.render('projects');
+});
+
 app.get('/contact', (req, res) => {
     res.render('contact');
-    console.log("req.body: ", req.body);
 });
     
 app.post('/thanks', (req, res) => {
@@ -121,7 +127,7 @@ app.post('/thanks', (req, res) => {
      * This is our function that is getting called as the callback from our authorize function. 
      */
     function updateSheets(auth) {
-        //const { firstName, lastName, email,} =  req.body;
+        
         const sheets = google.sheets({version: 'v4', auth});
         //This variable will need ot be the 'Sheet ID' of the google sheet you created
         const mySpreadsheetId = '1t8vtW8NjKgXwVYn88Q8ygbFtr5WgIXQdMKO0vZ9q0xQ';
@@ -129,7 +135,7 @@ app.post('/thanks', (req, res) => {
         //this is the basic call to retreive data
         sheets.spreadsheets.values.get({
             spreadsheetId: mySpreadsheetId,
-            range: 'Sheet1!A:C',
+            range: 'Sheet1',
         }, (err, response) => {
             if (err) return console.log('The API returned an error: ' + err);
             const rows = response.data.values;
@@ -148,22 +154,24 @@ app.post('/thanks', (req, res) => {
 
             //This section will append data, You will need to specify the values yourself rather than the place holders "1, 2, 3"
             let values = [
-                [req.body.firstName, req.body.lastName, req.body.email],
+                [req.body.firstName, req.body.lastName, req.body.email, req.body.message],
                 //additional rows would go here if you require them
             ];
             const resource = {
                 values
             };
+            let date = new Date(); 
+            console.log("DATE", date)
             //this is the funciton to append data, take note of the config variables as you will likely need to update or change them to customize what data you are appending to your sheet
             sheets.spreadsheets.values.update({
+                
                 //your spreadsheet
                 spreadsheetId: mySpreadsheetId,
                 //The range in A1 notation of where you want to append, in this example it is using the current height of your sheet from the previous call to determine where to put the next row
                 range: `Sheet1!A${existingRowsLength + 1}`,
                 valueInputOption: "USER_ENTERED",
                 //This is the value of the variable resourse above that will be populated with the data you want to append to your sheet
-                resource: {
-                    values: [[req.body.firstName, req.body.lastName, req.body.email]],
+                resource: { values: [[req.body.firstName, req.body.lastName, req.body.email, req.body.message, date]],
                 }
             }, (err, result) => {
                 if (err) {
